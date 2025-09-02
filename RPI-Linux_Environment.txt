@@ -1,0 +1,24 @@
+##RPI-Linux_Environment##
+
+#Edit crontab content
+crontab -e
+
+#Check the crontab content
+crontab -l
+
+#Add the following script for task scheduler
+#5hr
+0 */5 * * * /usr/bin/python3 /home/pi/Downloads/Reboot.py >> /home/pi/Downloads/reboot_check.log 2>&1
+
+#3min
+#*/3 * * * * /usr/bin/python3 /home/pi/Downloads/Reboot.py >> /home/pi/Downloads/reboot_check.log 2>&1
+
+'''
+After editing, press Ctrl + O to save the file.
+Press Enter to confirm the filename.
+Then press Ctrl + X to exit the editor.
+'''
+
+#Clear All Crontab Jobs
+crontab -r
+
