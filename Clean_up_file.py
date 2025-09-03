@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Aug 27 14:25:24 2025
+Created on Wed Aug 27 14:25:24 2023
 
 @author: beckylin
 """
@@ -47,3 +47,4 @@ def delete_future_folders(folder_path, threshold_days):
 
 # Run the cleanup
 delete_future_folders(FOLDER_PATH, TIME_THRESHOLD_DAYS)
+
