@@ -1,5 +1,10 @@
 # Crontab-Task-Scheduler-in-Linux
-Crontab (short for "cron table") is a powerful time-based job scheduler in Unix-like operating systems, including Linux. It allows users to automate repetitive tasks by scheduling scripts or commands to run at specific times or intervals.
+Crontab (short for "cron table") is a powerful time-based job scheduler in Unix-like operating systems, including Linux. 
+
+In Linux-based systems, repetitive tasks like **file cleanup**, **system maintenance**, or **sending notification**s can be automated using cron, a time-based job scheduler. 
+
+This project demonstrates how to leverage crontab to schedule and execute tasks automatically, reducing manual effort and improving operational efficiency.
+
 ## How does it work
 ```
 *  *  *  *  *  *
@@ -11,30 +16,21 @@ Crontab (short for "cron table") is a powerful time-based job scheduler in Unix-
 |  +---------------------- hour (0 - 23)
 +----------------------------- min (0 - 59)
 ```
-## Linux_Environment
-Edit crontab content
-```
-crontab -e
-```
-Add the following script for task scheduler
-```
-# For 5hr
-0 */5 * * * /usr/bin/python3 /home/pi/Documents/Clean_up_file.py >> /home/pi/Documents/check.log 2>&1
+## Python Script: `Clean_up_file.py` Function:
 
-# For 3min
-#*/3 * * * * /usr/bin/python3 /home/pi/Documents/Clean_up_file.py >> /home/pi/Documents/check.log 2>&1
-```
-After editing, press ```Ctrl + O``` to save the file.
+- Checks folder names to see if they match a valid date format.
+- Compares each folder's date to the current date.
+- Deletes folders older than the threshold (1 day by default).
+- Logs actions and errors to the console.
 
-Press ```Enter``` to confirm the filename.
+## Shell Script: `edit_crontab.sh` Function:
 
-Then press ```Ctrl + X``` to exit the editor.
+- Run the Python script automatically with the desire schedule setting
 
-Check the crontab content
-```
-crontab -l
-```
-Clear All Crontab Jobs
-```
-crontab -r
-```
+ ## Step by step
+ 1. Add permission 
+`chmod +x edit_crontab.sh`
+
+2. Run the script
+`./edit_crontab.sh`
+
