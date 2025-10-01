@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thu Aug 21 14:19:50 2025
+Created on Thu Aug 21 14:19:50 2023
 
 @author: beckylin
 """
@@ -11,16 +11,16 @@ from datetime import datetime, timedelta
 import time
 
 # Constants
-#FOLDER_PATH = './Sound'
-FOLDER_PATH = '/home/pi/Downloads/Sound'
-TIME_THRESHOLD_HOURS = 4
+#FOLDER_PATH = './Vid'
+FOLDER_PATH = '/home/pi/Downloads/Vid'
+TIME_THRESHOLD_HOURS = 2
 
 def get_today_folder():
     return os.path.join(FOLDER_PATH, datetime.today().strftime('%Y%m%d'))
 
 def extract_timestamp_from_filename(filename):
     try:
-        # Filename format: SUSS_YYYYMMDD_HHMMSSffffff.wav
+        # Filename format: Vid_YYYYMMDD_HHMMSSffffff.mp4
         base = os.path.basename(filename)
         timestamp_str = base.split('_')[1] + '_' + base.split('_')[2].split('.')[0]
         return datetime.strptime(timestamp_str, '%Y%m%d_%H%M%S%f')
@@ -48,25 +48,25 @@ def check_last_record_time():
         folder = None
         for f in folders:
             folder_path = os.path.join(FOLDER_PATH, f)
-            wav_files = [wf for wf in os.listdir(folder_path) if wf.endswith('.wav')]
-            if wav_files:
+            vid_files = [vd for vd in os.listdir(folder_path) if vd.endswith('.mp4')]
+            if vid_files:
                 folder = folder_path
                 break
 
         if not folder:
-            print("No valid folders with .wav files found.")
+            print("No valid folders with .mp4 files found.")
             return
     else:
         folder = today_folder
 
-    # Find the latest .wav file in the selected folder
-    wav_files = [f for f in os.listdir(folder) if f.endswith('.wav')]
-    if not wav_files:
-        print("No .wav files found in the selected folder.")
+    # Find the latest .mp4 file in the selected folder
+    mp4_files = [f for f in os.listdir(folder) if f.endswith('.mp4')]
+    if not vid_files:
+        print("No .mp4 files found in the selected folder.")
         return
 
-    wav_files.sort(reverse=True)
-    latest_file = wav_files[0]
+    vid_files.sort(reverse=True)
+    latest_file = vid_files[0]
     latest_file_path = os.path.join(folder, latest_file)
     print(f"Latest file found: {latest_file_path}")
 
@@ -89,3 +89,4 @@ def check_last_record_time():
 
 # Run the check
 check_last_record_time()
+
