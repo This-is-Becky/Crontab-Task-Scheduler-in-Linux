@@ -12,7 +12,7 @@ import time
 
 # Constants
 #FOLDER_PATH = './Vid'
-FOLDER_PATH = '/home/pi/Downloads/Vid'
+FOLDER_PATH = '/home/pi/Documents/Vid'
 TIME_THRESHOLD_HOURS = 2
 
 def get_today_folder():
@@ -89,4 +89,5 @@ def check_last_record_time():
 
 # Run the check
 check_last_record_time()
+
 
