@@ -36,9 +36,13 @@ This project demonstrates how to leverage crontab to schedule and execute tasks 
 - Run the Python script automatically with the desire schedule setting
 
  ## Step by step
- 1. Add permission 
+
+ 1. Stored the desire python script in the specific path location
+(ex: Choose either Clean_up.py or Reboot.py to run, stored it in rpi's home/pi/Documents folder path for this practice)
+    
+ 3. Add permission on rpi
 `chmod +x edit_crontab.sh`
 
-2. Run the script
+4. Run the script on rpi
 `./edit_crontab.sh`
 
