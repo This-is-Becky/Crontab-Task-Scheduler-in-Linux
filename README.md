@@ -25,11 +25,11 @@ This project demonstrates how to leverage crontab to schedule and execute tasks 
 
 ## Python Script: `Reboot.py` Function:
 
--Checks for recent .mp4 video recordings in /home/pi/Downloads/Vid/YYYYMMDD folder.
--Searches today’s folder first, then previous folders if today’s doesn’t exist.
--Extracts timestamp from the latest video filename (Vid_YYYYMMDD_HHMMSSffffff.mp4).
--Compares timestamp with current time.
--Reboots the system if the latest video is older than 2 hours.
+- Checks for recent .mp4 video recordings in /home/pi/Downloads/Vid/YYYYMMDD folder.
+- Searches today’s folder first, then previous folders if today’s doesn’t exist.
+- Extracts timestamp from the latest video filename (Vid_YYYYMMDD_HHMMSSffffff.mp4).
+- Compares timestamp with current time.
+- Reboots the system if the latest video is older than 2 hours.
 
 ## Shell Script: `edit_crontab.sh` Function:
 
